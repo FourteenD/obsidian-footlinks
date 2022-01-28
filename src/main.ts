@@ -57,7 +57,7 @@ export default class FootlinksPlugin extends Plugin {
 	generateFootlinks() {
 		this.re = /\[([^\[\]]+?)\]\((https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%\._\+~#=]{1,256}\.[a-zA-Z0-9\(\)]{1,6}?(?:\/(.*?(\(.*?\))*.*?)*?(\.\w{1,6})?)*?)\)/gi;
 		const activeLeaf = this.app.workspace.activeLeaf ?? null;
-		const source = activeLeaf.view.sourceMode;
+		const source = activeLeaf.view.currentMode;
 		const sourceContent = source.get();
 		this.seperator = this.makeSeperator(sourceContent);
 		const extractedLinks = this.extractLinks(sourceContent) ?? null;
